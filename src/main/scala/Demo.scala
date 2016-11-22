@@ -5,6 +5,7 @@ package com.example {
   import org.springframework.boot.SpringApplication
   import org.springframework.boot.autoconfigure.SpringBootApplication
   import org.springframework.context.annotation.Bean
+  import org.springframework.stereotype.{Component, Repository}
 
   @SpringBootApplication
   class DemoApplication {
@@ -13,12 +14,6 @@ package com.example {
       var clz: Array[Object] = Array(classOf[DemoApplication])
       SpringApplication.run(clz, args)
     }
-
-    @Bean
-    def demoProcess: DemoProcess = new DemoProcess
-
-    @Bean
-    def demoDao: DemoDao = new DemoDaoImpl
   }
 
   case class Demo(id: String, name: String)
@@ -27,10 +22,12 @@ package com.example {
     def find(): Demo
   }
 
+  @Repository
   class DemoDaoImpl extends DemoDao {
     override def find(): Demo = Demo("id", "name")
   }
 
+  @Component
   class DemoProcess {
 
     @Autowired

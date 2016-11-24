@@ -18,12 +18,12 @@ package com.example {
 
   case class Demo(id: String, name: String)
 
-  trait DemoDao {
+  trait DemoRepository {
     def find(): Demo
   }
 
   @Repository
-  class DemoDaoImpl extends DemoDao {
+  class DemoRepositoryImpl extends DemoRepository {
     override def find(): Demo = Demo("id", "name")
   }
 
@@ -31,9 +31,9 @@ package com.example {
   class DemoProcess {
 
     @Autowired
-    var demoDao: DemoDao = null
+    var demoRepository: DemoRepository = null
 
-    def process: Demo = demoDao.find
+    def process: Demo = demoRepository.find
 
   }
 

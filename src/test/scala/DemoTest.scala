@@ -32,14 +32,14 @@ package com.example {
   class MockTest {
 
     @MockBean
-    var demoDao: DemoDao = null
+    var demoRepository: DemoRepository = null
 
     @Autowired
     var demoProcess: DemoProcess = null
 
     @Before
     def setUp: Unit = {
-      when(demoDao.find()).thenReturn(Demo("foo", "bar"))
+      when(demoRepository.find()).thenReturn(Demo("foo", "bar"))
     }
 
     @Test

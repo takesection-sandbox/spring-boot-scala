@@ -19,7 +19,7 @@ package com.example {
 
     @Test
     def demoTest: Unit = {
-      var value: Demo = demoProcess.process
+      val value: Demo = demoProcess.process
 
       assertThat(value, is(not(nullValue())))
       assertThat(value.id, is("id"))
@@ -44,7 +44,7 @@ package com.example {
 
     @Test
     def demoTest: Unit = {
-      var value: Demo = demoProcess.process
+      val value: Demo = demoProcess.process
 
       assertThat(value, is(not(nullValue())))
       assertThat(value.id, is("foo"))
